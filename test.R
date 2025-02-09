@@ -26,7 +26,9 @@ base_nba <- base_nba |>
 
 base_nba$BLK_moy <-  as.numeric(base_nba$BLK_moy)
 
+vect_2019_20 <- grepl("2019-20", base_nba$Season, fixed  = TRUE)
 
+df_2019_20 <- base_nba[vect_2019_20,]
 
 # Charger la base de données
 library(readxl)
@@ -69,6 +71,21 @@ compare_players <- function(player_guess, player_target) {
 ui <- navbarPage(
   theme = bslib::bs_theme(bootswatch = "minty"),
   "LeBron le G.O.A.T !!",
+  
+  tags$head(tags$style(
+    "
+    /* Agrandir le nom du site */
+    .navbar-brand {
+      font-size: 40px !important; 
+    }
+
+    /* Agrandir la police des tabPanel */
+    .nav-link {
+      font-size: 20px !important;
+      padding: 15px 20px !important;
+    }
+    "
+  )),
   tabPanel("Acceuil", "Cette application a été créée dans le cadre de la formation RShiny - Initiation."),
   tabPanel(
     "Équipe",
@@ -82,15 +99,15 @@ ui <- navbarPage(
       )
     )
   ),
-  tabPanel(
-    "Joueurs", "mettre les joueurs ici" # Afficher liste des joueurs ici
-    
+  tabPanel("Joueurs",
+    tabsetPanel(
+      tabPanel("Liste des joueurs", 
+               DTOutput("Tableau_liste_joueurs")
+      )
+    )
   ),
   tabPanel(
-    "Tableau"
-  ),
-  tabPanel(
-    "Graphique"
+    "Comparaison"
   ),
   tabPanel(
     "Devinez le joueur NBA",
@@ -128,6 +145,19 @@ ui <- navbarPage(
 
 # Serveur : Logique de l'application ----
 server <- function(input, output) {
+  
+  
+  output$Tableau_liste_joueurs = renderDT(
+    df_2019_20,
+    rownames = FALSE,
+    extensions= c("Buttons", "Select"),
+    options= list(
+      dom= "Bfrtip",
+      pageLength= 10,
+      select= list(style='os', items= 'row')
+    )
+  )
+  
   
   # Générer la carte dans l'onglet "Carte"
   
