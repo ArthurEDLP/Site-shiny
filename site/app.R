@@ -922,7 +922,7 @@ server <- function(input, output, session) {
     )
     
     leaflet(loca_club) %>%
-      addProviderTiles("Stadia.OSMBright") %>%
+      addProviderTiles(providers$OpenStreetMap) %>%
       addMarkers(
         lng = ~Longitude,
         lat = ~Latitude,
