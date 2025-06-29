@@ -5,6 +5,6 @@ account: arthur-edlp
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 14182325
-bundleId: 10537302
+bundleId: 10537360
 url: https://arthur-edlp.shinyapps.io/site/
 version: 1
