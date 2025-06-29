@@ -18,13 +18,13 @@ color_palette <- viridis(5)  # Vous pouvez ajuster le nombre de couleurs en fonc
 
 
 
-nba_base_equipe <- read_excel("site/Données/nba_base_equipe.xlsx")
-loca_club <- read_excel("site/Données/base_loc (1).xlsx") # base de donnée carte club NBA
+nba_base_equipe <- read_excel("Données/nba_base_equipe.xlsx")
+loca_club <- read_excel("Données/base_loc (1).xlsx") # base de donnée carte club NBA
 
-# Charger la base de site/Données
-base_jeux <- read_excel("site/Données/nba_players.xlsx") # base de donnée jeux
+# Charger la base de Données
+base_jeux <- read_excel("Données/nba_players.xlsx") # base de donnée jeux
 
-nba_base_complete <- read_excel("site/Données/nba_base_complete.xlsx")
+nba_base_complete <- read_excel("Données/nba_base_complete.xlsx")
 nba_base_complete <- nba_base_complete %>%
   arrange(Player, Season)
 
@@ -155,7 +155,7 @@ base_jeux$Nom <- base_jeux$Player
 # UI pour l'application
 # UI pour l'application
 ui <- navbarPage(
-  title = tags$img(src = "site/www/h.png", height = "75px"),  # Assurez-vous que h.png est dans le dossier www
+  title = tags$img(src = "www/h.png", height = "75px"),  # Assurez-vous que h.png est dans le dossier www
   
   # Ajouter du CSS pour personnaliser l'apparence de la page
   header = tags$head(
@@ -321,7 +321,7 @@ ui <- navbarPage(
                       p("Avec AirBall, nous avons voulu apporter des éléments concrets à cette discussion, en mettant à disposition des statistiques détaillées et des comparaisons objectives. Grâce aux performances historiques des joueurs et des équipes, nous permettons à chacun de se forger sa propre opinion sur le GOAT, tout en découvrant l'évolution du basket au fil des époques.")
                ),
                column(4,  # 4/12 de l'espace pour l'image
-                      img(src = "site/www/GoatBranding_web-series.png", height = "200px", width = "100%", style = "border-radius: 10px;"))
+                      img(src = "www/GoatBranding_web-series.png", height = "200px", width = "100%", style = "border-radius: 10px;"))
              )
            )
   ),
@@ -533,7 +533,7 @@ server <- function(input, output, session) {
       
       tags$div(
         tags$img(src = selected_team$logo, width = 100, height = 100, style = "display: block; margin: auto;"),
-        if (is_champion) tags$img(src = "site/www/nba_trophy.png", width = 100, height = 100, style = "display: block; margin: auto;")
+        if (is_champion) tags$img(src = "www/nba_trophy.png", width = 100, height = 100, style = "display: block; margin: auto;")
       )
     })
     
