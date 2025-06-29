@@ -1,0 +1,10 @@
+name: site
+title:
+username: arthur-edlp
+account: arthur-edlp
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 14182325
+bundleId: 10537302
+url: https://arthur-edlp.shinyapps.io/site/
+version: 1
