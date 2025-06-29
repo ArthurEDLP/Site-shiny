@@ -665,7 +665,7 @@ server <- function(input, output, session) {
     )
     
     leaflet(loca_club) %>%
-      addProviderTiles(providers$OpenStreetMap)%>%
+      addProviderTiles("OpenStreetMap")%>%
       addMarkers(
         lng = ~Longitude,
         lat = ~Latitude,
