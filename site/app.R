@@ -665,7 +665,7 @@ server <- function(input, output, session) {
     )
     
     leaflet(loca_club) %>%
-      addProviderTiles(providers$CartoDB.Positron) %>%
+      addProviderTiles(providers$OpenStreetMap)%>%
       addMarkers(
         lng = ~Longitude,
         lat = ~Latitude,
