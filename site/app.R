@@ -155,7 +155,7 @@ base_jeux$Nom <- base_jeux$Player
 # UI pour l'application
 # UI pour l'application
 ui <- navbarPage(
-  title = tags$img(src = "www/h.png", height = "75px"),  # Assurez-vous que h.png est dans le dossier www
+  title = tags$img(src = "h.png", height = "75px"),  # Assurez-vous que h.png est dans le dossier www
   
   # Ajouter du CSS pour personnaliser l'apparence de la page
   header = tags$head(
@@ -321,7 +321,7 @@ ui <- navbarPage(
                       p("Avec AirBall, nous avons voulu apporter des éléments concrets à cette discussion, en mettant à disposition des statistiques détaillées et des comparaisons objectives. Grâce aux performances historiques des joueurs et des équipes, nous permettons à chacun de se forger sa propre opinion sur le GOAT, tout en découvrant l'évolution du basket au fil des époques.")
                ),
                column(4,  # 4/12 de l'espace pour l'image
-                      img(src = "www/GoatBranding_web-series.png", height = "200px", width = "100%", style = "border-radius: 10px;"))
+                      img(src = "GoatBranding_web-series.png", height = "200px", width = "100%", style = "border-radius: 10px;"))
              )
            )
   ),
@@ -533,7 +533,7 @@ server <- function(input, output, session) {
       
       tags$div(
         tags$img(src = selected_team$logo, width = 100, height = 100, style = "display: block; margin: auto;"),
-        if (is_champion) tags$img(src = "www/nba_trophy.png", width = 100, height = 100, style = "display: block; margin: auto;")
+        if (is_champion) tags$img(src = "nba_trophy.png", width = 100, height = 100, style = "display: block; margin: auto;")
       )
     })
     
